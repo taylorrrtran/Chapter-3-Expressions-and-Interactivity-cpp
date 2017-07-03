@@ -1,0 +1,4 @@
+﻿  Chapter3Problems.cpp
+c:\users\taylor tran\documents\visual studio 2017\projects\chapter 3 - expressions (c++)\chapter3problems\chapter3problems.cpp(403): warning C4244: 'initializing': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Chapter3Problems.vcxproj -> C:\Users\Taylor Tran\Documents\Visual Studio 2017\Projects\Chapter 3 - Expressions (C++)\x64\Debug\Chapter 3 - Expressions and Interactivity (C++).exe
+  Chapter3Problems.vcxproj -> C:\Users\Taylor Tran\Documents\Visual Studio 2017\Projects\Chapter 3 - Expressions (C++)\x64\Debug\Chapter 3 - Expressions and Interactivity (C++).pdb (Partial PDB)
