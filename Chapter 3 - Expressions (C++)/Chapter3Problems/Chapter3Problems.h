@@ -22,6 +22,11 @@ class chapter3Problems
 		static void mathTutor();
 		static void interestEarned();
 		static void monthlyPayments();
+		static void pizzaPi();
+		static void howManyPizzas();
+		static void angleCalculator();
+		static void stockTransaction();
+		static void wordGame();
 		chapter3Problems();
 
 };

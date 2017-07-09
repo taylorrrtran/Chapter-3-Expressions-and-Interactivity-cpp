@@ -9,7 +9,7 @@
 int main() 
 {
 	chapter3Problems *p1 = new chapter3Problems;
-	p1->interestEarned();
+	p1->wordGame();
 	system("pause");
 	return 0;
 }
@@ -456,9 +456,160 @@ void chapter3Problems::interestEarned()
 
 void chapter3Problems::monthlyPayments()
 {
-	//This program
+	//This program will display a report on monthly payments
+
+	double monthlyPayment, rate, loan;
+	int NUM_PAYMENTS;
+	
+	//Gather input
+	std::cout << "Enter the loan amount: $";
+	std::cin >> loan;
+
+	std::cout << "Enter the monthly interest rate percentage: ";
+	std::cin >> rate;
+
+	std::cout << "Enter the number of payments: ";
+	std::cin >> NUM_PAYMENTS;
+
+	//Calculate monthly payment and display report
+	monthlyPayment = (((rate / 100.00) * pow((1.00 + (rate / 100.00)), NUM_PAYMENTS)) / (pow((1.00 + (rate / 100.00)), NUM_PAYMENTS) - 1.00)) * loan;
+	double totalPaidBack = monthlyPayment * NUM_PAYMENTS;
+	double interest = totalPaidBack - loan;
+
+	std::cout << std::setprecision(2) << std::showpoint << std::fixed;
+	std::cout << "Loan Amount:           $" << std::setw(10) << loan << std::endl;
+	std::cout << "Monthly Interest Rate:  " << std::setw(10) << rate << "%" << std::endl;
+	std::cout << "Number of Payments:     " << std::setw(10) << NUM_PAYMENTS << std::endl;
+	std::cout << "Monthly Payment:       $" << std::setw(10) << monthlyPayment << std::endl;
+	std::cout << "Amount Paid Back:      $" << std::setw(10) << totalPaidBack << std::endl;
+	std::cout << "Interest Paid:         $" << std::setw(10) << interest << std::endl;
 }
 
+void chapter3Problems::pizzaPi()
+{
+	//This program will calculate the number of slices a pizza can be divided too
+
+	double slices, diameter, area;
+
+	//Gather user input
+	std::cout << "Enter the diameter of the pizza in inches: ";
+	std::cin >> diameter;
+
+	//Calculate area of pi and number of slices
+	area = 3.14159 * pow((diameter / 2.00), 2);
+	slices = area / 14.125;
+
+	//Display the number of slices
+	std::cout << std::setprecision(2) << std::showpoint << std::fixed;
+	std::cout << "The number of slices in this pizza: " << slices << std::endl;
+}
+
+void chapter3Problems::howManyPizzas()
+{
+	/* This modification to the pizza pi program will one the amount of pizzas to purchase
+	   based on the number of guests wanting to eat pizza */
+
+	int guests, diameter;
+
+	//Gather input
+	std::cout << "Enter the amount of guests attending the party: ";
+	std::cin >> guests;
+
+	std::cout << "Enter the diameter of the pizza(s) to be ordered: ";
+	std::cin >> diameter;
+
+	//Calculate the amount of pizzas to be ordered. One guests eats on average 4 slices.
+	double slices = guests * (4 * 14.125);
+	double area = 3.14159 * pow((diameter / 2.00), 2);
+	double pizzas = slices / area;
+
+	//Display amount of pizzas needed to be ordered
+	std::cout << std::setprecision(2) << std::showpoint << std::fixed;
+	std::cout << "The amount of pizzas needed to be ordered: " << pizzas << std::endl;
+}
+
+void chapter3Problems::angleCalculator()
+{
+	//This program will display the sin, cos, and tan value of an angle inputted in radians
+
+	double radians;
+
+	//Gather input for radians
+	std::cout << "Please enter an angle (in radians): ";
+	std::cin >> radians;
+
+	//Convert radians to sine, cosine, and tangent
+	std::cout << std::setprecision(4) << std::fixed;
+	std::cout << "Sine Value:    " << (sin(radians)) << std::endl;
+	std::cout << "Cosine Value:  " << (cos(radians)) << std::endl;
+	std::cout << "Tangent Value: " << (tan(radians)) << std::endl;
+}
+
+void chapter3Problems::stockTransaction()
+{
+	/* This program will display a report about stock information:
+	   including price for paying and selling stock, amount paid to broker
+	   in commission, and was it a profit or loss */
+
+	//Create variables
+	int stocks = 1000;
+	double initialPay = 45.50;
+	double soldPay = 56.90;
+	double amountBought = stocks * initialPay;
+	double amountSold = stocks * soldPay;
+	double commissionBefore = 0.02 * amountBought;
+	double commissionAfter = 0.02 * amountSold;
+	double total = amountSold - (commissionBefore + commissionAfter + amountBought);
+
+	//Display the variables
+	std::cout << std::setprecision(2) << std::showpoint << std::fixed;
+	std::cout << "Amount paid for stock:                              $" << amountBought << std::endl;;
+	std::cout << "Amount paid to broker for commission after buying:  $" << commissionBefore << std::endl;
+	std::cout << "Amount received for selling stock:                  $" << amountSold << std::endl;
+	std::cout << "Amount paid to broker for commission after selling: $" << commissionAfter << std::endl;
+	std::cout << "Total amount made in profit or loss:                $" << total << std::endl;
+}
+
+void chapter3Problems::wordGame()
+{
+	/* This program will gather user input and fill in the blanks of a story
+	   based on the data entered */
+
+	std::string name, age, city, college, profession, animal, pet;
+
+	//Gather user input
+	std::cout << "Enter your name: ";
+	std::getline(std::cin, name);
+
+	std::cout << "Enter your age: ";
+	std::cin >> age;
+
+	std::cin.ignore();
+	std::cout << "Enter your city: ";
+	std::getline(std::cin, city);
+
+	std::cout << "Enter the name of your college: ";
+	std::getline(std::cin, college);
+
+	std::cout << "Enter the name of your profession: ";
+	std::getline(std::cin, profession);
+
+	std::cout << "Enter a type of animal: ";
+	std::getline(std::cin, animal);
+
+	std::cout << "Enter your pet's name: ";
+	std::getline(std::cin, pet);
+
+	//Display variables
+	std::cout << "There once was a person named " << name;
+	std::cout << " who lived in " << city;
+	std::cout << ". At the age of \n" << age;
+	std::cout << ", " << name << " went to college at " << college;
+	std::cout << ". " << name << " graduated and went to work \n";
+	std::cout << "as a " << profession << ". Then, " << name;
+	std::cout << " adopted a(n) " << animal << " named " << pet;
+	std::cout << ". They \n both lived happily ever after!" << std::endl;
+}
 chapter3Problems::chapter3Problems()
 {
 }
